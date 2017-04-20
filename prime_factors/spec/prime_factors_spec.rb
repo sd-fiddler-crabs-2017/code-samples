@@ -41,23 +41,23 @@ describe "#evenly_divisible?" do
   end
 end
 
-describe "#possible_factors_not_one_and_self" do
+describe "#possible_factors" do
   context "number is less than or equal to two" do
     it "is empty" do
-      expect(possible_factors_not_one_and_self(1)).to be_empty
-      expect(possible_factors_not_one_and_self(2)).to be_empty
+      expect(possible_factors(1)).to be_empty
+      expect(possible_factors(2)).to be_empty
     end
   end
 
   context "number is greater than two" do
     it "returns integers from two to half the number" do
-      expect(possible_factors_not_one_and_self(9)).to eq (2..4).to_a
-      expect(possible_factors_not_one_and_self(10)).to eq (2..5).to_a
+      expect(possible_factors(9)).to eq (2..4).to_a
+      expect(possible_factors(10)).to eq (2..5).to_a
     end
 
     it "contains at least a two" do
-      expect(possible_factors_not_one_and_self(3)).to eq [2]
-      expect(possible_factors_not_one_and_self(4)).to eq [2]
+      expect(possible_factors(3)).to eq (2..2).to_a
+      expect(possible_factors(4)).to eq (2..2).to_a
     end
   end
 end
